@@ -5,7 +5,6 @@ import Process from "./components/Process/Process";
 import Service from "./components/Service/Service";
 
 const HomePageContainer = styled('div')(() => ({
-
 }))
 
 const HomePage = () => {

@@ -48,7 +48,7 @@ const NavList = styled('li')(() => ({
     listStyle: 'none',
     padding: '0 25px',
     '>a': {
-        lineHeight: '70px',
+        lineHeight: '80px',
         fontSize: '18px',
         fontFamily: "'Roboto', sans-serif",
         fontWeight: 500,

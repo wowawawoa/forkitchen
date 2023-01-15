@@ -13,8 +13,8 @@ const PageBox = styled(Box)(() => ({
     width: '100%',
     flexDirection: 'column',
     position: 'relative',
-    minHeight: 'calc(100vh - 70px)',
-    paddingTop: '70px',
+    // minHeight: 'calc(100vh - 80px)',
+    paddingTop: '80px',
 }))
 
 const Layout = () => {

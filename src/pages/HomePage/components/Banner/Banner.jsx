@@ -4,7 +4,6 @@ import HomePageBannerImg from '../../../../assets/Images/HomePageImgs/HomePageBa
 
 const BannerContainer = styled('div')(() => ({
     display: 'flex',
-    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',

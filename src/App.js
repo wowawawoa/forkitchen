@@ -1,10 +1,22 @@
+import Layout from "./components/Layout/Layout";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import KitchenPage from "./pages/KitchensPage/KitchenPage";
+import GalleryPage from "./pages/GalleryPage/GalleryPage";
+import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
 
-
-function App() {
+const App = () => {
   return (
-    <div>
-      <h1>For Kitchen</h1>
-    </div>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/kitchens" element={<KitchenPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
+        </Route>
+      </Routes>
   );
 }
 

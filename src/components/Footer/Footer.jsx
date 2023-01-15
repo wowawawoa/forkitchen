@@ -65,6 +65,85 @@ const QuickLinkItem = styled(Link)(() => ({
     textDecoration: 'none',
     fontFamily: "'Mukta Vaani', sans-serif",
     lineHeight: '1.5em',
+    position: 'relative',
+    '::before': {
+        content: '""',
+        display: 'block',
+        width: '6px',
+        height: '6px',
+        border: '1px solid #fff',
+        transform: 'rotate(45deg)',
+        position: 'absolute',
+        left: 0,
+        top: '8px',
+    }
+}))
+
+const MessageForm = styled('form')(() => ({
+    display: 'block',
+    '>input': {
+        background: 'none',
+        width: '100%',
+        border: '1px solid rgba(238, 238, 238, 0.5)',
+        margin: '0 0 10px 0',
+        lineHeight: '36px',
+        height: '36px',
+        fontSize: '14px',
+        padding: '0 0 0 10px',
+        color: '#fff',
+    },
+    '>textarea': {
+        background: 'none',
+        width: '100%',
+        border: '1px solid rgba(238, 238, 238, 0.5)',
+        margin: '0 0 20px 0',
+        fontSize: '14px',
+        padding: '10px',
+        color: '#fff',
+        display: 'block'
+    },
+    '>textarea:focus, >input:focus': {
+        outline: 'none'
+    },
+    '>textarea::selection, >input::selection': {
+        color: '#fff',
+        backgroundColor: '#f99e01',
+    },
+}))
+
+const SubmitButton = styled('button')(() => ({
+    width: '150px',
+    height: '40px',
+    lineHeight: '40px',
+    backgroundColor: '#f99e01',
+    color: '#fff',
+    fontSize: '14px',
+    textTransform: 'uppercase',
+    border: 'none',
+    outline: 'none'
+}))
+
+const CopyrightContainer = styled('div')(() => ({
+    margin: '20px auto 0',
+    borderTop: '1px solid rgba(255, 255, 255, 0.3)',
+    width: '1260px',
+    '>p': {
+        lineHeight: '50px',
+        fontSize: '14px',
+        color: '#fff',
+        opacity: 0.8,
+        width: '100%',
+        textAlign: 'center',
+        margin: 0,
+        padding: 0,
+    },
+    '>p>em': {
+        fontSize: '14px',
+        color: '#fff',
+        opacity: 0.8,
+        paddingLeft: '1em',
+        fontStyle: 'normal',
+    }
 }))
 
 const Footer = () => {
@@ -97,11 +176,20 @@ const Footer = () => {
                     <QuickLinkItem to='/gallery'>Galley</QuickLinkItem>
                     <QuickLinkItem to='/contact'>Contact Us</QuickLinkItem>
                 </InfoItemContainer>
-                <InfoItemContainer style={{width: '22%'}}>
+                <InfoItemContainer style={{width: '25%'}}>
                     <h4>Send Message</h4>
-                    
+                    <MessageForm action="get">
+                        <input type="text" name="name" placeholder="*Name" required />
+                        <input type="text" name="email" placeholder="*Email" required />
+                        <textarea name="content" placeholder="*Message" required></textarea>
+                        <SubmitButton type="submit">Send Message</SubmitButton>
+                    </MessageForm>
                 </InfoItemContainer>
             </InfoContainer>
+            <CopyrightContainer>
+                <p>Copyright ©  | For Kitchen PTY LTD <em>ABN 18 622 303 342</em></p>
+                
+            </CopyrightContainer>
         </FooterContainer>
     )
 }

@@ -6,7 +6,7 @@ import AboutUsPageBannerImg from '../../assets/Images/AboutUsPageImgs/AboutUsPag
 const AboutUsPageContainer = styled('div')(() => ({
 }))
 
-const pageContent = {
+const bannerContent = {
     pageTitle: 'About Us',
     pageLocation: 'Home - About Us',
     PageBannerImg: AboutUsPageBannerImg
@@ -16,9 +16,9 @@ const AboutUsPage = () => {
     return (
         <AboutUsPageContainer>
             <Banner 
-                pageTitle={pageContent.pageTitle} 
-                pageLocation={pageContent.pageLocation}
-                PageBannerImg={pageContent.PageBannerImg}
+                pageTitle={bannerContent.pageTitle} 
+                pageLocation={bannerContent.pageLocation}
+                PageBannerImg={bannerContent.PageBannerImg}
             />
             <Content />
         </AboutUsPageContainer>

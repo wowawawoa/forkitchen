@@ -79,7 +79,7 @@ const QuickLinkItem = styled(Link)(() => ({
     }
 }))
 
-const MessageForm = styled('form')(() => ({
+const ContactForm = styled('form')(() => ({
     display: 'block',
     '>input': {
         background: 'none',
@@ -178,17 +178,16 @@ const Footer = () => {
                 </InfoItemContainer>
                 <InfoItemContainer style={{width: '25%'}}>
                     <h4>Send Message</h4>
-                    <MessageForm action="get">
+                    <ContactForm action="post">
                         <input type="text" name="name" placeholder="*Name" required />
-                        <input type="text" name="email" placeholder="*Email" required />
+                        <input type="email" name="email" placeholder="*Email" required />
                         <textarea name="content" placeholder="*Message" required></textarea>
                         <SubmitButton type="submit">Send Message</SubmitButton>
-                    </MessageForm>
+                    </ContactForm>
                 </InfoItemContainer>
             </InfoContainer>
             <CopyrightContainer>
                 <p>Copyright ©  | For Kitchen PTY LTD <em>ABN 18 622 303 342</em></p>
-                
             </CopyrightContainer>
         </FooterContainer>
     )

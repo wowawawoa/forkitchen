@@ -13,7 +13,7 @@ const PageBox = styled(Box)(() => ({
     width: '100%',
     flexDirection: 'column',
     position: 'relative',
-    // minHeight: 'calc(100vh - 80px)',
+    fontFamily: "'Mukta Vaani', sans-serif",
     paddingTop: '80px',
 }))
 

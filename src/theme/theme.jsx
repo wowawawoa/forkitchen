@@ -6,6 +6,7 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     fontSize: 24,
+                    fontFamily: "'Mukta Vaani', sans-serif",
                 }
             }
         }

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { styled } from "@mui/system";
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 
@@ -54,7 +54,11 @@ const NavList = styled('li')(() => ({
         fontWeight: 500,
         textTransform: 'uppercase',
         textDecoration: 'none',
-        color: '#333'
+        color: '#333',
+        ':hover': {
+            color: '#f99e01',
+            transition: '0.4s',
+        }
     }
 }))
 
@@ -89,6 +93,20 @@ const StyledPhoneInTalkIcon = styled(PhoneInTalkIcon)(() => ({
     width: '24px',
 }))
 
+const activeStyle = {
+    color: '#f99e01',
+    textDecoration: 'underline',
+    textUnderlineOffset: '8px',
+}
+
+const navs = [
+    {id: 1, link: '/', name: 'Home'},
+    {id: 2, link: '/about', name: 'About Us'},
+    {id: 3, link: '/kitchens', name: 'Kitchens'},
+    {id: 4, link: '/gallery', name: 'Gallery'},
+    {id: 5, link: '/contact', name: 'Contact Us'},
+]
+
 const Header = () => {
     return (
         <HeaderContainer>
@@ -97,21 +115,16 @@ const Header = () => {
             </LogoBox>
             <NavContainer>
                 <NavBox>
-                    <NavList>
-                        <Link to='/'>Home</Link>
-                    </NavList>
-                    <NavList>
-                        <Link to='/about'>About Us</Link>
-                    </NavList>
-                    <NavList>
-                        <Link to='/kitchens'>Kitchens</Link>
-                    </NavList>
-                    <NavList>
-                        <Link to='/gallery'>Gallery</Link>
-                    </NavList>
-                    <NavList>
-                        <Link to='/contact'>Contact Us</Link>
-                    </NavList>
+                    {navs.map((nav) => (
+                        <NavList key={nav.id}>
+                            <NavLink 
+                                to={nav.link} 
+                                style={({isActive}) => isActive ? activeStyle : undefined}
+                            >
+                                {nav.name}
+                            </NavLink>
+                        </NavList>
+                    ))}
                 </NavBox>
                 <PhoneNumContainer>
                     <IconBox>

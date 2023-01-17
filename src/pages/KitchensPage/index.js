@@ -1,1 +1,1 @@
-export { default } from './KitchenPage'
+export { default } from './KitchensPage'

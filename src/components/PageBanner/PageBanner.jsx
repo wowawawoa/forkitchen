@@ -20,6 +20,7 @@ const BannerTextContainer = styled('div')(() => ({
         margin: 0,
         fontWeight: 500,
         textAlign: 'center',
+        fontFamily: "'Oswald', sans-serif",
     },
     zIndex: 2,
 }))

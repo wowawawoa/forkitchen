@@ -53,36 +53,27 @@ const StyledListIcon = styled(ListItemIcon)(() => ({
     minWidth: '40px'
 }))
 
+const processes = [
+    { id: 1, info: "Initially, we'll work closely with you to understand your requirements and come up with the design." },
+    { id: 2, info: "Next, we present a quote and timelines for the same." },
+    { id: 3, info: "Once this is approved, we'll develop the design and install it in the promised timeframe." },
+    { id: 4, info: "All our staff members are very cordial and would be happy to answer your questions, leaving you completely satisfied with the experience." }
+]
+
 const Process = () => {
     return (
         <ProcessContainer>
             <ContentContainer>
                 <h2>Our Process</h2>
                 <ProcessList>
-                    <ProcessListItem>
-                        <StyledListIcon>
-                            <CheckIcon />
-                        </StyledListIcon>
-                        <p>Initially, we'll work closely with you to understand your requirements and come up with the design.</p>
-                    </ProcessListItem>
-                    <ProcessListItem>
-                        <StyledListIcon>
-                            <CheckIcon />
-                        </StyledListIcon>
-                        <p>Next, we present a quote and timelines for the same.</p>
-                    </ProcessListItem>
-                    <ProcessListItem>
-                        <StyledListIcon>
-                            <CheckIcon />
-                        </StyledListIcon>
-                        <p>Once this is approved, we'll develop the design and install it in the promised timeframe.</p>
-                    </ProcessListItem>
-                    <ProcessListItem>
-                        <StyledListIcon>
-                            <CheckIcon />
-                        </StyledListIcon>
-                        <p>All our staff members are very cordial and would be happy to answer your questions, leaving you completely satisfied with the experience.</p>
-                    </ProcessListItem>
+                    {processes.map((process) => (
+                        <ProcessListItem key={process.id}>
+                            <StyledListIcon>
+                                <CheckIcon />
+                            </StyledListIcon>
+                            <p>{process.info}</p>
+                        </ProcessListItem>
+                    ))}
                 </ProcessList>
             </ContentContainer>
         </ProcessContainer>

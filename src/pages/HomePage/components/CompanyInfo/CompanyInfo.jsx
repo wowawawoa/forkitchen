@@ -1,6 +1,7 @@
 import { styled } from "@mui/system";
-import CompanyInfoImg from '../../../../assets/Images/HomePageImgs/CompanyInfoImg.jpg';
 import { Link } from "react-router-dom";
+
+const CompanyInfoImg = 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/HomePageImgs/CompanyInfoImg.jpg'
 
 const CompanyInfoContainer = styled('div')(() => ({
     display: 'flex',
@@ -65,7 +66,7 @@ const CompanyInfo = () => {
         <>
             <CompanyInfoContainer>
                 <ImgBox>
-                    <img src={`${CompanyInfoImg}`} alt="kitchen display" />
+                    <img src={CompanyInfoImg} alt="kitchen display" />
                 </ImgBox>
                 <ContentContainer>
                     <h2>About Us</h2>

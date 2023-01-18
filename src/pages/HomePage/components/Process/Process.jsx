@@ -1,10 +1,9 @@
 import { styled } from '@mui/system';
-import ProcessBg from '../../../../assets/Images/HomePageImgs/ProcessBg.jpg';
 import CheckIcon from '@mui/icons-material/Check';
 import { List, ListItem, ListItemIcon } from '@mui/material';
 
 const ProcessContainer = styled('div')(() => ({
-    backgroundImage: `url(${ProcessBg})`,
+    backgroundImage: 'url(https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/HomePageImgs/ProcessBg.jpg)',
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
     backgroundPosition: 'center',

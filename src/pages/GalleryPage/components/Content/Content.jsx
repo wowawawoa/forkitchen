@@ -1,16 +1,4 @@
 import { styled } from "@mui/system";
-import GalleryPageImg01 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg01.jpeg';
-import GalleryPageImg02 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg02.jpeg';
-import GalleryPageImg03 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg03.jpg';
-import GalleryPageImg04 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg04.jpeg';
-import GalleryPageImg05 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg05.jpg';
-import GalleryPageImg06 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg06.jpg';
-import GalleryPageImg07 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg07.jpg';
-import GalleryPageImg08 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg08.jpeg';
-import GalleryPageImg09 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg09.jpg';
-import GalleryPageImg10 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg10.jpg';
-import GalleryPageImg11 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg11.jpg';
-import GalleryPageImg12 from '../../../../assets/Images/GalleryPageImgs/GalleryPageImg12.jpg';
 
 const ContentContainer = styled('div')(() => ({
     padding: '5vw 0',
@@ -41,17 +29,17 @@ const GalleryListItem = styled('li')(() => ({
 
 const galleryImgs = [
     {id: 1, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg01.jpeg'},
-    {id: 2, img: GalleryPageImg02},
-    {id: 3, img: GalleryPageImg03},
-    {id: 4, img: GalleryPageImg04},
-    {id: 5, img: GalleryPageImg05},
-    {id: 6, img: GalleryPageImg06},
-    {id: 7, img: GalleryPageImg07},
-    {id: 8, img: GalleryPageImg08},
-    {id: 9, img: GalleryPageImg09},
-    {id: 10, img: GalleryPageImg10},
-    {id: 11, img: GalleryPageImg11},
-    {id: 12, img: GalleryPageImg12},
+    {id: 2, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg02.jpeg'},
+    {id: 3, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg03.jpg'},
+    {id: 4, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg04.jpeg'},
+    {id: 5, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg05.jpg'},
+    {id: 6, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg06.jpg'},
+    {id: 7, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg07.jpg'},
+    {id: 8, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg08.jpeg'},
+    {id: 9, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg09.jpg'},
+    {id: 10, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg10.jpg'},
+    {id: 11, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg11.jpg'},
+    {id: 12, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg12.jpg'},
 ]
 
 const Content = () => {

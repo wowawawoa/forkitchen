@@ -1,7 +1,4 @@
 import { styled } from "@mui/system";
-import ServiceImg01 from '../../../../assets/Images/HomePageImgs/ServiceImg01.jpg';
-import ServiceImg02 from '../../../../assets/Images/HomePageImgs/ServiceImg02.jpg';
-import ServiceImg03 from '../../../../assets/Images/HomePageImgs/ServiceImg03.jpg';
 
 const ServiceContainer = styled('div')(() => ({
     display: 'flex',
@@ -69,21 +66,21 @@ const Service = () => {
             <h2>Service</h2>
             <ServiceList>
                 <ListItem>
-                    <img src={`${ServiceImg01}`} alt="service" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/HomePageImgs/ServiceImg01.jpg' alt="service" />
                     <ListTextContent>
                         <h3>Ready Made Kitchens</h3>
                         <p>For Kitchen manufactures readymade kitchen cabinets using diverse materials, finishes, as well as, colours and styles to offer great convenience and are budget-friendly. If you want to build new kitchen cabinets but don’t want to go through the trouble and expense of having them custom made, then ready-made kitchen cabinets may be an easy and viable solution for you. Besides, installing readymade kitchen cabinets is a lot quicker, saving you valuable time.</p>
                     </ListTextContent>
                 </ListItem>
                 <ListItem>
-                    <img src={`${ServiceImg02}`} alt="service" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/HomePageImgs/ServiceImg02.jpg' alt="service" />
                     <ListTextContent>
                         <h3>Kitchen Renovation</h3>
                         <p>With over 5 years of rock-solid experience, For Kitchen is your local custom kitchen renovation specialist, providing the ultimate in kitchen renovations in Adelaide and nearby areas. You can expect beautiful design, seamless build quality, and professional installation for your custom-made kitchen renovation.</p>
                     </ListTextContent>
                 </ListItem>
                 <ListItem>
-                    <img src={`${ServiceImg03}`} alt="service" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/HomePageImgs/ServiceImg03.jpg' alt="service" />
                     <ListTextContent>
                         <h3>Kitchen Design</h3>
                         <p>Before commencing any work, we'll give you a 3D kitchen design, so you can look for yourself how your new or renovated kitchen will look once the work is completed. That means you'll know in advance how your dream kitchen will look and get peace of mind concerning your decisions. Besides, we are aware and will make sure your newly built or renovated kitchen adheres to the standard dimensions for Australian kitchen design guaranteeing optimum ergonomics.</p>

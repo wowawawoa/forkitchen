@@ -1,7 +1,8 @@
 import { styled } from "@mui/system";
 import Banner from "../../components/PageBanner/PageBanner";
 import Content from "./components/Content/Content";
-import AboutUsPageBannerImg from '../../assets/Images/AboutUsPageImgs/AboutUsPageBanner.jpg';
+
+const AboutUsPageBannerImg = 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/AboutUsPageImgs/AboutUsPageBanner.jpg';
 
 const AboutUsPageContainer = styled('div')(() => ({
 }))

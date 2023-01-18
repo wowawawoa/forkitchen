@@ -1,6 +1,7 @@
 import { styled } from "@mui/system";
 import { Link } from "react-router-dom";
-import HomePageBannerImg from '../../../../assets/Images/HomePageImgs/HomePageBanner.jpg';
+
+const HomePageBannerImg = 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/HomePageImgs/HomePageBanner.jpg'
 
 const BannerContainer = styled('div')(() => ({
     display: 'flex',

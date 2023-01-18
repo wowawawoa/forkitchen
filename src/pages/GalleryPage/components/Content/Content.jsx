@@ -40,7 +40,7 @@ const GalleryListItem = styled('li')(() => ({
 }))
 
 const galleryImgs = [
-    {id: 1, img: GalleryPageImg01},
+    {id: 1, img: 'https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/GalleryPageImgs/GalleryPageImg01.jpeg'},
     {id: 2, img: GalleryPageImg02},
     {id: 3, img: GalleryPageImg03},
     {id: 4, img: GalleryPageImg04},

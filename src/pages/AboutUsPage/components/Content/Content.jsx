@@ -1,6 +1,6 @@
 import { styled } from "@mui/system";
 
-const ContentContainer = styled('div')(() => ({
+const ContentContainer = styled('div')(({theme}) => ({
     padding: '5vw 0',
     margin: '0 auto',
     width: '1260px',
@@ -8,6 +8,18 @@ const ContentContainer = styled('div')(() => ({
         margin: '0 0 1em 0',
         padding: 0,
         fontFamily: "'Mukta Vaani', sans-serif",
+    },
+    [theme.breakpoints.down('lg')]: {
+        width: '100%',
+        padding: '28px 14px',
+        '>p': {
+            fontSize: '16px',
+        }
+    },
+    [theme.breakpoints.down('md')]: {
+        '>p': {
+            fontSize: '14px',
+        }
     }
 }))
 

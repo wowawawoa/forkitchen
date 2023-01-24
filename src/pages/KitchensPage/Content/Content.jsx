@@ -1,17 +1,18 @@
 import { styled } from "@mui/system";
 import { List, ListItem, ListItemIcon } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import KitchensPageImg01 from "../../../assets/Images/KitchensPageImgs/KitchensPageImg01.jpg";
-import KitchensPageImg02 from "../../../assets/Images/KitchensPageImgs/KitchensPageImg02.jpg";
-import KitchensPageImg03 from "../../../assets/Images/KitchensPageImgs/KitchensPageImg03.jpg";
-import KitchensPageImg04 from "../../../assets/Images/KitchensPageImgs/KitchensPageImg04.jpg";
-import KitchensPageImg05 from "../../../assets/Images/KitchensPageImgs/KitchensPageImg05.jpg";
-import KitchensPageImg06 from "../../../assets/Images/KitchensPageImgs/KitchensPageImg06.jpg";
 
-const ContentContainer = styled("div")(() => ({
+const ContentContainer = styled("div")(({theme}) => ({
     padding: "5vw 0",
     margin: "0 auto",
     width: "1260px",
+    [theme.breakpoints.down('lg')]: {
+        width: '100%',
+        padding: '28px 14px',
+        '>p': {
+            fontSize: '16px',
+        }
+    },
 }));
 
 const InfoTextContainer = styled("div")(() => ({
@@ -21,25 +22,28 @@ const InfoTextContainer = styled("div")(() => ({
     },
 }));
 
-const DetailedInfoContainer = styled("div")(() => ({
+const DetailedInfoContainer = styled("div")(({theme}) => ({
     display: "flex",
+    [theme.breakpoints.down('lg')]: {
+        flexDirection: 'column',
+    },
 }));
 
-const DetailedInfoListContainer = styled("div")(() => ({
+const DetailedInfoListContainer = styled("div")(({theme}) => ({
     ">h2": {
         color: "#000",
-        fontSize: "1.5vw",
+        fontSize: "22px",
         padding: "1em 0 10px",
         fontFamily: "'Oswald', sans-serif",
-        lineHeight: "1em",
+        lineHeight: "24px",
         fontWeight: 500,
         margin: 0,
     },
     ">h3": {
         color: "#000",
-        fontSize: "1.5vw",
+        fontSize: "20px",
         padding: "0 0 10px",
-        lineHeight: "1.5em",
+        lineHeight: "22px",
         margin: 0,
     },
     '>h4': {
@@ -49,6 +53,14 @@ const DetailedInfoListContainer = styled("div")(() => ({
     },
     ">p": {
         margin: "0 0 16px 0",
+    },
+    [theme.breakpoints.down('lg')]: {
+        '>h2': {
+            fontSize: '18px',
+        },
+        '>h3': {
+            fontSize: '16px',
+        }
     },
 }));
 
@@ -73,17 +85,39 @@ const StyledListIcon = styled(ListItemIcon)(() => ({
     paddingTop: "4px",
 }));
 
-const RightImgBox = styled("div")(() => ({
+const RightImgBox = styled("div")(({theme}) => ({
     ">img": {
         padding: "0 0 20px 40px",
     },
+    [theme.breakpoints.down('lg')]: {
+        margin: '0 auto',
+        '>img': {
+            padding: 0,
+        },
+    },
+    [theme.breakpoints.down('sm')]: {
+        '>img': {
+            maxWidth: '100%'
+        },
+    },
 }));
 
-const LeftImgBox = styled("div")(() => ({
+const LeftImgBox = styled("div")(({theme}) => ({
     ">img": {
         padding: "0 40px 20px 0",
         objectFit: "cover",
         display: "block",
+    },
+    [theme.breakpoints.down('lg')]: {
+        margin: '0 auto 10px',
+        '>img': {
+            padding: 0,
+        },
+    },
+    [theme.breakpoints.down('sm')]: {
+        '>img': {
+            maxWidth: '100%'
+        },
     },
 }));
 
@@ -115,50 +149,17 @@ const kitchenLayoutsItems = [
 ];
 
 const KitchenStylesItems = [
-    {
-        id: 1,
-        info: "<strong>Black kitchens</strong> are a visual treat and maintaining them is effortless.",
-    },
-    {
-        id: 2,
-        info: "<strong>Hampton kitchens</strong> are classic yet casual radiating a comfortable and graceful feel.",
-    },
-    {
-        id: 3,
-        info: "<strong>French provincial kitchens</strong> are eternal favorites as they add tenderness and personality to space.",
-    },
-    {
-        id: 4,
-        info: "<strong>Shaker style kitchens</strong> are timeless and very popular. Even better, a shaker kitchen works in just about any kitchen design.",
-    },
-    {
-        id: 5,
-        info: "<strong>Country kitchens</strong> are gentle and inviting where family and friends love to linger.",
-    },
-    {
-        id: 6,
-        info: "<strong>Classic kitchens</strong> combine simplicity and function ensuring lasting appeal.",
-    },
-    {
-        id: 7,
-        info: "<strong>Modern or contemporary kitchens</strong> are designed for practicality and efficiency; they are stylish, sleek, and streamlined.",
-    },
-    {
-        id: 8,
-        info: "<strong>White kitchens</strong> make the room feel spacious as it seamlessly optimizes your home's natural light.",
-    },
-    {
-        id: 9,
-        info: "<strong>Handleless kitchens</strong> are characterized by handleless drawers and cabinets. Opening and closing have become easier with modern hinges and runners.",
-    },
-    {
-        id: 10,
-        info: "<strong>Outdoor kitchens</strong> can completely alter your home's backyard into a relaxing and luxurious year-round living space.",
-    },
-    {
-        id: 11,
-        info: "<strong>Industrial-style kitchens</strong> are built using stainless steel and reclaimed wood surfaces; they use ventilation units and filament light bulbs and have exposed brick walls.",
-    },
+    { id: 1, info: "<strong>Black kitchens</strong> are a visual treat and maintaining them is effortless.", },
+    { id: 2, info: "<strong>Hampton kitchens</strong> are classic yet casual radiating a comfortable and graceful feel.", },
+    { id: 3, info: "<strong>French provincial kitchens</strong> are eternal favorites as they add tenderness and personality to space.", },
+    { id: 4, info: "<strong>Shaker style kitchens</strong> are timeless and very popular. Even better, a shaker kitchen works in just about any kitchen design.", },
+    { id: 5, info: "<strong>Country kitchens</strong> are gentle and inviting where family and friends love to linger.", },
+    { id: 6, info: "<strong>Classic kitchens</strong> combine simplicity and function ensuring lasting appeal.", },
+    { id: 7, info: "<strong>Modern or contemporary kitchens</strong> are designed for practicality and efficiency; they are stylish, sleek, and streamlined.", },
+    { id: 8, info: "<strong>White kitchens</strong> make the room feel spacious as it seamlessly optimizes your home's natural light.", },
+    { id: 9, info: "<strong>Handleless kitchens</strong> are characterized by handleless drawers and cabinets. Opening and closing have become easier with modern hinges and runners.", },
+    { id: 10, info: "<strong>Outdoor kitchens</strong> can completely alter your home's backyard into a relaxing and luxurious year-round living space.", },
+    { id: 11, info: "<strong>Industrial-style kitchens</strong> are built using stainless steel and reclaimed wood surfaces; they use ventilation units and filament light bulbs and have exposed brick walls.", },
 ];
 
 const cabinetTypesItems = [
@@ -183,9 +184,9 @@ const cabinetryFitOutItems = [
 ]
 
 const sinksAndTapsItems = [
-    {id: 1, info: "<strong>Drop-In Sinks</strong> is placed into the created hole wherein self-rimming edges rest on top of the benchtop."},
-    {id: 2, info: "<strong>Under-Mounted Sinks</strong> are installed beneath the benchtop; they have a sleek, edgeless finish."},
-    {id: 3, info: "<strong>Integral Sinks</strong> are produced from the same benchtop material, providing a flawless look of a smooth shift from the sink to the surface."},
+    { id: 1, info: "<strong>Drop-In Sinks</strong> is placed into the created hole wherein self-rimming edges rest on top of the benchtop." },
+    { id: 2, info: "<strong>Under-Mounted Sinks</strong> are installed beneath the benchtop; they have a sleek, edgeless finish." },
+    { id: 3, info: "<strong>Integral Sinks</strong> are produced from the same benchtop material, providing a flawless look of a smooth shift from the sink to the surface." },
 ]
 
 const Content = () => {
@@ -228,7 +229,7 @@ const Content = () => {
                     </DetailedInfoList>
                 </DetailedInfoListContainer>
                 <RightImgBox>
-                    <img src={KitchensPageImg01} alt="kitchen layouts" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/KitchensPageImgs/KitchensPageImg01.jpg' alt="kitchen display" />
                 </RightImgBox>
             </DetailedInfoContainer>
             <DetailedInfoContainer>
@@ -243,7 +244,7 @@ const Content = () => {
             </DetailedInfoContainer>
             <DetailedInfoContainer>
                 <LeftImgBox>
-                    <img src={KitchensPageImg02} alt="kitchen layouts" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/KitchensPageImgs/KitchensPageImg02.jpg' alt="kitchen display" />
                 </LeftImgBox>
                 <DetailedInfoListContainer>
                     <h2>Select Custom Kitchen Style in Adelaide</h2>
@@ -312,7 +313,7 @@ const Content = () => {
                     </DetailedInfoList>
                 </DetailedInfoListContainer>
                 <RightImgBox>
-                    <img src={KitchensPageImg03} alt="kitchen layouts" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/KitchensPageImgs/KitchensPageImg03.jpg' alt="kitchen display" />
                 </RightImgBox>
             </DetailedInfoContainer>
             <DetailedInfoContainer>
@@ -334,7 +335,7 @@ const Content = () => {
             </DetailedInfoContainer>
             <DetailedInfoContainer>
                 <LeftImgBox>
-                    <img src={KitchensPageImg04} alt="kitchen layouts" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/KitchensPageImgs/KitchensPageImg04.jpg' alt="kitchen display" />
                 </LeftImgBox>
                 <DetailedInfoListContainer>
                     <h3>Kitchen Benchtop Selection</h3>
@@ -363,12 +364,12 @@ const Content = () => {
                     <p>Pressed Metal is made out of an aluminium alloy that won't corrode, and are appropriate to be installed behind cooktops.</p>
                 </DetailedInfoListContainer>
                 <RightImgBox>
-                    <img src={KitchensPageImg05} alt="kitchen layouts" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/KitchensPageImgs/KitchensPageImg05.jpg' alt="kitchen display" />
                 </RightImgBox>
             </DetailedInfoContainer>
             <DetailedInfoContainer>
                 <LeftImgBox>
-                    <img src={KitchensPageImg06} alt="kitchen layouts" />
+                    <img src='https://forkitchen.s3.ap-northeast-1.amazonaws.com/Images/KitchensPageImgs/KitchensPageImg06.jpg' alt="kitchen display" />
                 </LeftImgBox>
                 <DetailedInfoListContainer>
                     <h3>Kitchen Appliances</h3>

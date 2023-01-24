@@ -7,15 +7,16 @@ const BannerContainer = styled('div')(() => ({
     position: 'relative',
 }))
 
-const BannerTextContainer = styled('div')(() => ({
+const BannerTextContainer = styled('div')(({theme}) => ({
     display: 'flex',
     flexDirection: 'column',
     padding: 0,
     position: 'absolute',
+    gap: '10px',
     '>h2': {
         color: '#fff',
-        fontSize: '1.5vw',
-        lineHeight: '1em',
+        fontSize: '24px',
+        lineHeight: '24px',
         textTransform: 'capitalize',
         margin: 0,
         fontWeight: 500,
@@ -23,6 +24,12 @@ const BannerTextContainer = styled('div')(() => ({
         fontFamily: "'Oswald', sans-serif",
     },
     zIndex: 2,
+    [theme.breakpoints.down('md')]: {
+        '>h2': {
+            fontSize: '18px',
+            lineHeight: '18px',
+        }
+    }
 }))
 
 const PageLocationBox = styled('div')(() => ({
@@ -36,11 +43,13 @@ const PageLocationBox = styled('div')(() => ({
 }))
 
 const BannerImg = styled('div')(() => ({
+    minHeight: '72px',
     width: '100%',
     '>img': {
         width: '100%',
         objectFit: 'cover',
         display: 'block',
+        minHeight: '72px',
     }
 }))
 

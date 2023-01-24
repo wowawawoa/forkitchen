@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { styled } from "@mui/system";
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
+import { useMediaQuery } from "@mui/material";
+import MobileNav from "./components/MobileNav/MobileNav";
 
-const HeaderContainer = styled('div')(() => ({
+const HeaderContainer = styled('div')(({theme}) => ({
     display: 'flex',
     width: '100%',
     flexWrap: 'warp',
@@ -12,9 +14,16 @@ const HeaderContainer = styled('div')(() => ({
     position: 'fixed',
     zIndex: 999,
     backgroundColor: '#fff',
+    [theme.breakpoints.down('md')]: {
+        backgroundColor: '#f99e01',
+        height: '50px',
+    },
+    [theme.breakpoints.down('sm')]: {
+        padding: '0 15px',
+    },
 }))
 
-const LogoBox = styled('div')(() => ({
+const LogoBox = styled('div')(({theme}) => ({
     '>a': {
         textDecoration: 'none',
         color: '#333',
@@ -28,6 +37,13 @@ const LogoBox = styled('div')(() => ({
         lineHeight: '1em',
         fontWeight: 500,
         margin: 0,
+        [theme.breakpoints.down('lg')]: {
+            fontSize: '28px',
+        },
+        [theme.breakpoints.down('md')]: {
+            color: '#fff',
+            fontSize: '18px',
+        }
     }
 }))
 
@@ -62,7 +78,7 @@ const NavList = styled('li')(() => ({
     }
 }))
 
-const PhoneNumContainer = styled('div')(() => ({
+const PhoneNumContainer = styled('div')(({theme}) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -73,6 +89,9 @@ const PhoneNumContainer = styled('div')(() => ({
         fontWeight: 600,
         fontSize: '24px',
         margin: 0,
+    },
+    [theme.breakpoints.down('lg')]: {
+        display: 'none',
     }
 }))
 
@@ -99,40 +118,47 @@ const activeStyle = {
     textUnderlineOffset: '8px',
 }
 
-const navs = [
-    {id: 1, link: '/', name: 'Home'},
-    {id: 2, link: '/about', name: 'About Us'},
-    {id: 3, link: '/kitchens', name: 'Kitchens'},
-    {id: 4, link: '/gallery', name: 'Gallery'},
-    {id: 5, link: '/contact', name: 'Contact Us'},
+export const navs = [
+    { id: 1, link: '/', name: 'Home' },
+    { id: 2, link: '/about', name: 'About Us' },
+    { id: 3, link: '/kitchens', name: 'Kitchens' },
+    { id: 4, link: '/gallery', name: 'Gallery' },
+    { id: 5, link: '/contact', name: 'Contact Us' },
 ]
 
 const Header = () => {
+    const mobileMatch = useMediaQuery((theme) => theme.breakpoints.down('md'));
+
     return (
         <HeaderContainer>
             <LogoBox>
                 <Link to="/"><h1>For Kitchen</h1></Link>
             </LogoBox>
-            <NavContainer>
-                <NavBox>
-                    {navs.map((nav) => (
-                        <NavList key={nav.id}>
-                            <NavLink 
-                                to={nav.link} 
-                                style={({isActive}) => isActive ? activeStyle : undefined}
-                            >
-                                {nav.name}
-                            </NavLink>
-                        </NavList>
-                    ))}
-                </NavBox>
-                <PhoneNumContainer>
-                    <IconBox>
-                        <StyledPhoneInTalkIcon />
-                    </IconBox>
-                    <p>(08) 7001 6136</p>
-                </PhoneNumContainer>
-            </NavContainer>
+            {mobileMatch ? (
+                <MobileNav />
+            ) : (
+                <NavContainer>
+                    <NavBox>
+                        {navs.map((nav) => (
+                            <NavList key={nav.id}>
+                                <NavLink
+                                    to={nav.link}
+                                    style={({ isActive }) => isActive ? activeStyle : undefined}
+                                >
+                                    {nav.name}
+                                </NavLink>
+                            </NavList>
+                        ))}
+                    </NavBox>
+                    <PhoneNumContainer>
+                        <IconBox>
+                            <StyledPhoneInTalkIcon />
+                        </IconBox>
+                        <p>(08) 7001 6136</p>
+                    </PhoneNumContainer>
+                </NavContainer>
+            )}
+            
         </HeaderContainer>
     )
 }

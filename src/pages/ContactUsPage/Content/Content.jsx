@@ -2,22 +2,28 @@ import { styled } from "@mui/system";
 import PhoneInTalkOutlinedIcon from '@mui/icons-material/PhoneInTalkOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PinDropOutlinedIcon from '@mui/icons-material/PinDropOutlined';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
-const ContentContainer = styled('div')(() => ({
+const ContentContainer = styled('div')(({theme}) => ({
     padding: '5vw 0',
     margin: '0 auto',
     width: '1000px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    [theme.breakpoints.down('lg')]: {
+        padding: '28px 14px 0',
+        width: '100%',
+    }
 }))
 
-const ContactInfoContainer = styled('div')(() => ({
+const ContactInfoContainer = styled('div')(({theme}) => ({
     width: '100%',
     textAlign: 'center',
     '>h2': {
         color: '#333',
-        fontSize: '2vw',
+        fontSize: '28px',
         fontFamily: "'Oswald', sans-serif",
         textTransform: 'uppercase',
         fontWeight: 500,
@@ -30,16 +36,31 @@ const ContactInfoContainer = styled('div')(() => ({
         fontWeight: 500,
         fontSize: '18px',
         padding: '16px 0 0',
+    },
+    [theme.breakpoints.down('lg')]: {
+        '>h2': {
+            fontSize: '24px',
+        },
     }
 }))
 
-const ContactInfoList = styled('ul')(() => ({
+const ContactInfoList = styled('ul')(({theme}) => ({
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'flex-start',
     padding: '2vw 0',
+    [theme.breakpoints.down('lg')]: {
+        margin: 0,
+    },
+    [theme.breakpoints.down('sm')]: {
+        // flexDirection: 'column',
+        // alignItems: 'center',
+        display: 'block',
+        margin: '0 auto'
+    }
 }))
 
-const ContactInfoListItem = styled('li')(() => ({
+const ContactInfoListItem = styled('li')(({theme}) => ({
     margin: '0 0 20px',
     alignItems: 'center',
     width: '33%',
@@ -47,8 +68,18 @@ const ContactInfoListItem = styled('li')(() => ({
     justifyContent: 'center',
     listStyle: 'none',
     flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'flex-start',
+    }
+}))
+
+const DetailedContactInfo = styled('div')(({theme}) => ({
+    width: '100%',
+    height: '100%',
+    paddingTop: '10px',
     '>span': {
-        padding: '10px 0 0',
         fontSize: '20px',
         lineHeight: '24px',
         color: '#333',
@@ -61,25 +92,42 @@ const ContactInfoListItem = styled('li')(() => ({
         fontSize: '14px',
         lineHeight: '1.5em',
         fontFamily: "'Mukta Vaani', sans-serif",
+    },
+    [theme.breakpoints.down('sm')]: {
+        marginLeft: '14px',
+        '>span': {
+            fontSize: '18px',
+            lineHeight: '18px',
+            textAlign: 'left'
+        }
     }
 }))
 
-const TelIcon = styled(PhoneInTalkOutlinedIcon)(() => ({
+const EmailIcon = styled(EmailOutlinedIcon)(({theme}) => ({
     fontSize: '40px',
     color: '#f99e01',
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '32px',
+    }
 }))
 
-const EmailIcon = styled(EmailOutlinedIcon)(() => ({
+const TelIcon = styled(PhoneInTalkOutlinedIcon)(({theme}) => ({
     fontSize: '40px',
     color: '#f99e01',
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '32px',
+    }
 }))
 
-const AddressIcon = styled(PinDropOutlinedIcon)(() => ({
+const AddressIcon = styled(PinDropOutlinedIcon)(({theme}) => ({
     fontSize: '40px',
     color: '#f99e01',
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '32px',
+    }
 }))
 
-const ContactFormContainer =  styled('div')(() => ({
+const ContactFormContainer =  styled('div')(({theme}) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -90,7 +138,7 @@ const ContactFormContainer =  styled('div')(() => ({
     flexDirection: 'column',
     '>h2': {
         color: '#333',
-        fontSize: '2vw',
+        fontSize: '28px',
         fontFamily: "'Oswald', sans-serif",
         textTransform: 'uppercase',
         fontWeight: 500,
@@ -105,6 +153,9 @@ const ContactFormContainer =  styled('div')(() => ({
         padding: '0 0 1em',
         lineHeight: '1.5em',
         margin: 0,
+    },
+    [theme.breakpoints.down('md')]: {
+        display: 'none',
     }
 }))
 
@@ -152,6 +203,18 @@ const SubmitButton = styled('button')(() => ({
 }))
 
 const Content = () => {
+    const form = useRef();
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_75yozfi', 'template_ojh1kkx', form.current, 'craJ6dJSJNvj2yJHU')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text)
+            })
+    }
+
     return (
         <ContentContainer>
             <ContactInfoContainer>
@@ -160,29 +223,35 @@ const Content = () => {
                 <ContactInfoList>
                     <ContactInfoListItem>
                         <TelIcon />
-                        <span>Tel</span>
-                        <p>(08)7001 6136</p>
+                        <DetailedContactInfo>
+                            <span>Tel</span>
+                            <p>(08)7001 6136</p>
+                        </DetailedContactInfo>
                     </ContactInfoListItem>
                     <ContactInfoListItem>
                         <EmailIcon />
-                        <span>E-mail</span>
-                        <p>forkitchens@hotmail.com</p>
+                        <DetailedContactInfo>
+                            <span>E-mail</span>
+                            <p>forkitchens@hotmail.com</p>
+                        </DetailedContactInfo>
                     </ContactInfoListItem>
                     <ContactInfoListItem>
                         <AddressIcon />
-                        <span>Address</span>
-                        <p>1/25-27 Musgrave Avenue Welland SA 5007</p>
+                        <DetailedContactInfo>
+                            <span>Address</span>
+                            <p>1/25-27 Musgrave Avenue Welland SA 5007</p>
+                        </DetailedContactInfo>
                     </ContactInfoListItem>
                 </ContactInfoList>
             </ContactInfoContainer>
             <ContactFormContainer>
                 <h2>Contact Form</h2>
                 <h3>Fill This So We Can Learn More About You And Your Project.</h3>
-                <ContactForm action="post">
+                <ContactForm ref={form} onSubmit={sendEmail}>
                     <input type="text" name="name" placeholder="*Name" required />
                     <input type="email" name="email" placeholder="*Email" required />
                     <input type="tel" name="telephone" placeholder="Telephone" />
-                    <textarea name="content" placeholder="*Message" required></textarea>
+                    <textarea name="message" placeholder="*Message" required></textarea>
                     <SubmitButton type="submit">Send</SubmitButton>
                 </ContactForm>
             </ContactFormContainer>

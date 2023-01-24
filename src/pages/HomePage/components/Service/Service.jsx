@@ -1,33 +1,45 @@
 import { styled } from "@mui/system";
 
-const ServiceContainer = styled('div')(() => ({
+const ServiceContainer = styled('div')(({theme}) => ({
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '4vw auto',
+    margin: '56px auto',
     width: '1260px',
     '>h2': {
         fontFamily: "'Oswald', sans-serif",
-        fontSize: '2.5vw',
+        fontSize: '32px',
         textTransform: 'uppercase',
-        padding: '0 0 1.5vw 0',
+        padding: '0 0 16px 0',
         margin: 0,
         fontWeight: 500,
-        lineHeight: '2.5vw',
-    }
+        lineHeight: '32px',
+    },
+    [theme.breakpoints.down('lg')]: {
+        width: '100%',
+        margin: '28px auto 0',
+        '>h2': {
+            fontSize: '24px',
+            lineHeight: '24px',
+            padding: 0,
+        }
+    },
 }))
 
-const ServiceList = styled('ul')(() => ({
+const ServiceList = styled('ul')(({theme}) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     padding: 0,
     width: '100%',
+    [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+    },
 }))
 
-const ListItem = styled('li')(() => ({
+const ListItem = styled('li')(({theme}) => ({
     listStyle: 'none',
     width: '32%',
     margin: '0 0 20px',
@@ -36,10 +48,14 @@ const ListItem = styled('li')(() => ({
         margin: '0 auto',
         height: '270px',
         width: '100%',
-    }
+        objectFit: 'cover',
+    },
+    [theme.breakpoints.down('md')]: {
+        width: '100%',
+    },
 }))
 
-const ListTextContent = styled('div')(() => ({
+const ListTextContent = styled('div')(({theme}) => ({
     padding: '0 20px 20px',
     '>h3': {
         fontSize: '22px',
@@ -49,12 +65,16 @@ const ListTextContent = styled('div')(() => ({
         fontFamily: "'Mukta Vaani', sans-serif",
         lineHeight: '1.5em',
         margin: 0,
+        [theme.breakpoints.down('md')]: {
+            fontSize: '18px',
+            padding: '10px 0',
+        },
     },
     '>p': {
         padding: 0,
         margin: 0,
         color: '#555',
-        fontSize: '14px',
+        fontSize: '16px',
         lineHeight: '1.5em',
         fontFamily: "'Mukta Vaani', sans-serif",
     }

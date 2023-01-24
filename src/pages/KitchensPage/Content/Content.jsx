@@ -2,10 +2,17 @@ import { styled } from "@mui/system";
 import { List, ListItem, ListItemIcon } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
-const ContentContainer = styled("div")(() => ({
+const ContentContainer = styled("div")(({theme}) => ({
     padding: "5vw 0",
     margin: "0 auto",
     width: "1260px",
+    [theme.breakpoints.down('lg')]: {
+        width: '100%',
+        padding: '28px 14px',
+        '>p': {
+            fontSize: '16px',
+        }
+    },
 }));
 
 const InfoTextContainer = styled("div")(() => ({
@@ -15,25 +22,28 @@ const InfoTextContainer = styled("div")(() => ({
     },
 }));
 
-const DetailedInfoContainer = styled("div")(() => ({
+const DetailedInfoContainer = styled("div")(({theme}) => ({
     display: "flex",
+    [theme.breakpoints.down('lg')]: {
+        flexDirection: 'column',
+    },
 }));
 
-const DetailedInfoListContainer = styled("div")(() => ({
+const DetailedInfoListContainer = styled("div")(({theme}) => ({
     ">h2": {
         color: "#000",
-        fontSize: "1.5vw",
+        fontSize: "22px",
         padding: "1em 0 10px",
         fontFamily: "'Oswald', sans-serif",
-        lineHeight: "1em",
+        lineHeight: "24px",
         fontWeight: 500,
         margin: 0,
     },
     ">h3": {
         color: "#000",
-        fontSize: "1.5vw",
+        fontSize: "20px",
         padding: "0 0 10px",
-        lineHeight: "1.5em",
+        lineHeight: "22px",
         margin: 0,
     },
     '>h4': {
@@ -43,6 +53,14 @@ const DetailedInfoListContainer = styled("div")(() => ({
     },
     ">p": {
         margin: "0 0 16px 0",
+    },
+    [theme.breakpoints.down('lg')]: {
+        '>h2': {
+            fontSize: '18px',
+        },
+        '>h3': {
+            fontSize: '16px',
+        }
     },
 }));
 
@@ -67,17 +85,39 @@ const StyledListIcon = styled(ListItemIcon)(() => ({
     paddingTop: "4px",
 }));
 
-const RightImgBox = styled("div")(() => ({
+const RightImgBox = styled("div")(({theme}) => ({
     ">img": {
         padding: "0 0 20px 40px",
     },
+    [theme.breakpoints.down('lg')]: {
+        margin: '0 auto',
+        '>img': {
+            padding: 0,
+        },
+    },
+    [theme.breakpoints.down('sm')]: {
+        '>img': {
+            maxWidth: '100%'
+        },
+    },
 }));
 
-const LeftImgBox = styled("div")(() => ({
+const LeftImgBox = styled("div")(({theme}) => ({
     ">img": {
         padding: "0 40px 20px 0",
         objectFit: "cover",
         display: "block",
+    },
+    [theme.breakpoints.down('lg')]: {
+        margin: '0 auto 10px',
+        '>img': {
+            padding: 0,
+        },
+    },
+    [theme.breakpoints.down('sm')]: {
+        '>img': {
+            maxWidth: '100%'
+        },
     },
 }));
 

@@ -8,13 +8,16 @@ const Body = styled('div')({
     width: '100%',
 });
 
-const PageBox = styled(Box)(() => ({
+const PageBox = styled(Box)(({theme}) => ({
     display: 'flex',
     width: '100%',
     flexDirection: 'column',
     position: 'relative',
     fontFamily: "'Mukta Vaani', sans-serif",
     paddingTop: '80px',
+    [theme.breakpoints.down('md')]: {
+        paddingTop: '50px',
+    },
 }))
 
 const Layout = () => {

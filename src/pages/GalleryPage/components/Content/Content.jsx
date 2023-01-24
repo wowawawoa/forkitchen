@@ -1,9 +1,13 @@
 import { styled } from "@mui/system";
 
-const ContentContainer = styled('div')(() => ({
+const ContentContainer = styled('div')(({theme}) => ({
     padding: '5vw 0',
     margin: '0 auto',
     width: '1260px',
+    [theme.breakpoints.down('lg')]: {
+        width: '100%',
+        padding: '20px 10px',
+    },
 }))
 
 const GalleryList = styled('ul')(() => ({
@@ -14,7 +18,7 @@ const GalleryList = styled('ul')(() => ({
     padding: 0,
 }))
 
-const GalleryListItem = styled('li')(() => ({
+const GalleryListItem = styled('li')(({theme}) => ({
     width: '32%',
     margin: '0 0 40px',
     cursor: 'pointer',
@@ -24,7 +28,14 @@ const GalleryListItem = styled('li')(() => ({
         height: '300px',
         display: 'block',
         objectFit: 'cover',
-    }
+    },
+    [theme.breakpoints.down('lg')]: {
+        width: '49%',
+        margin: '0 0 10px',
+        '>img': {
+            height: '30vw',
+        }
+    },
 }))
 
 const galleryImgs = [

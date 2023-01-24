@@ -9,10 +9,10 @@ const ProcessContainer = styled('div')(() => ({
     backgroundPosition: 'center',
 }))
 
-const ContentContainer = styled('div')(() => ({
-    width: '1260px',
+const ContentContainer = styled('div')(({theme}) => ({
+    maxWidth: '1260px',
     margin: '0 auto',
-    padding: '2.5vw 0',
+    padding: '40px 0',
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
@@ -20,13 +20,19 @@ const ContentContainer = styled('div')(() => ({
     alignItems: 'center',
     '>h2': {
         fontFamily: "'Oswald', sans-serif",
-        fontSize: '2.5vw',
+        fontSize: '32px',
         textTransform: 'uppercase',
         color: '#fff',
-        padding: '0 0 1.5vw 0',
+        padding: '0 0 10px 0',
         margin: 0,
         fontWeight: 500,
-        lineHeight: '2.5vw',
+        lineHeight: '32px',
+    },
+    [theme.breakpoints.down('lg')]: {
+        '>h2': {
+            fontSize: '24px',
+            lineHeight: '24px',
+        }
     }
 }))
 

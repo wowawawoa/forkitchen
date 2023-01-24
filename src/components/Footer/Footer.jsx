@@ -1,6 +1,8 @@
 import { styled } from "@mui/system";
 import { Link } from "react-router-dom";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const FooterContainer = styled('div')(({theme}) => ({
     padding: '40px 0 0',
@@ -173,6 +175,26 @@ const CopyrightContainer = styled('div')(({theme}) => ({
 
 const Footer = () => {
     const mobileMatch = useMediaQuery((theme) => theme.breakpoints.down('lg'));
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [telephone, setTelephone] = useState('');
+    const [message, setMessage] = useState('');
+
+    const form = useRef();
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_75yozfi', 'template_ojh1kkx', form.current, 'craJ6dJSJNvj2yJHU')
+            .then((result) => {
+                alert('success!');
+                setName('');
+                setEmail('');
+                setTelephone('');
+                setMessage('');
+            }, (error) => {
+                console.log(error.text)
+            })
+    }
 
     return (
         <FooterContainer>
@@ -180,12 +202,39 @@ const Footer = () => {
                 <InfoContainer>
                     <InfoItemContainer>
                         <h4>Send Message</h4>
-                        <ContactForm action="post">
-                            <input type="text" name="name" placeholder="*Name" required />
-                            <input type="email" name="email" placeholder="*Email" required />
-                            <input type="tel" name="telephone" placeholder="Telephone" />
-                            <textarea name="content" placeholder="*Message" required></textarea>
-                            <SubmitButton type="submit">Send Message</SubmitButton>
+                        <ContactForm ref={form} onSubmit={sendEmail}>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder="*Name" 
+                                value={name}
+                                onChange={e=>setName(e.target.value)}
+                                required 
+                            />
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="*Email" 
+                                value={email}
+                                onChange={e=>setEmail(e.target.value)}
+                                required 
+                            />
+                            <input 
+                                type="tel" 
+                                name="telephone" 
+                                placeholder="Telephone" 
+                                value={telephone}
+                                onChange={e=>setTelephone(e.target.value)}
+                            />
+                            <textarea 
+                                name="message" 
+                                placeholder="*Message" 
+                                value={message}
+                                onChange={e=>setMessage(e.target.value)}
+                                required
+                            >
+                            </textarea>
+                            <SubmitButton type="submit">Send</SubmitButton>
                         </ContactForm>
                     </InfoItemContainer>
                 </InfoContainer>
@@ -219,12 +268,39 @@ const Footer = () => {
                     </InfoItemContainer>
                     <InfoItemContainer style={{width: '25%'}}>
                         <h4>Send Message</h4>
-                        <ContactForm action="post">
-                            <input type="text" name="name" placeholder="*Name" required />
-                            <input type="email" name="email" placeholder="*Email" required />
-                            <input type="tel" name="telephone" placeholder="Telephone" />
-                            <textarea name="content" placeholder="*Message" required></textarea>
-                            <SubmitButton type="submit">Send Message</SubmitButton>
+                        <ContactForm ref={form} onSubmit={sendEmail}>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder="*Name" 
+                                value={name}
+                                onChange={e=>setName(e.target.value)}
+                                required 
+                            />
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="*Email" 
+                                value={email}
+                                onChange={e=>setEmail(e.target.value)}
+                                required 
+                            />
+                            <input 
+                                type="tel" 
+                                name="telephone" 
+                                placeholder="Telephone" 
+                                value={telephone}
+                                onChange={e=>setTelephone(e.target.value)}
+                            />
+                            <textarea 
+                                name="message" 
+                                placeholder="*Message" 
+                                value={message}
+                                onChange={e=>setMessage(e.target.value)}
+                                required
+                            >
+                            </textarea>
+                            <SubmitButton type="submit">Send</SubmitButton>
                         </ContactForm>
                     </InfoItemContainer>
                 </InfoContainer>

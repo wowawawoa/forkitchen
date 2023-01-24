@@ -2,7 +2,7 @@ import { styled } from "@mui/system";
 import PhoneInTalkOutlinedIcon from '@mui/icons-material/PhoneInTalkOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PinDropOutlinedIcon from '@mui/icons-material/PinDropOutlined';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 const ContentContainer = styled('div')(({theme}) => ({
@@ -92,6 +92,10 @@ const DetailedContactInfo = styled('div')(({theme}) => ({
         fontSize: '14px',
         lineHeight: '1.5em',
         fontFamily: "'Mukta Vaani', sans-serif",
+    },
+    '>p>a': {
+        textDecoration: 'none',
+        color: '#666',
     },
     [theme.breakpoints.down('sm')]: {
         marginLeft: '14px',
@@ -203,13 +207,22 @@ const SubmitButton = styled('button')(() => ({
 }))
 
 const Content = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [telephone, setTelephone] = useState('');
+    const [message, setMessage] = useState('');
+
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();
 
         emailjs.sendForm('service_75yozfi', 'template_ojh1kkx', form.current, 'craJ6dJSJNvj2yJHU')
             .then((result) => {
-                console.log(result.text);
+                alert('success!');
+                setName('');
+                setEmail('');
+                setTelephone('');
+                setMessage('');
             }, (error) => {
                 console.log(error.text)
             })
@@ -225,14 +238,14 @@ const Content = () => {
                         <TelIcon />
                         <DetailedContactInfo>
                             <span>Tel</span>
-                            <p>(08)7001 6136</p>
+                            <p><a href="tel:+61-452110806">(08)7001 6136</a></p>                         
                         </DetailedContactInfo>
                     </ContactInfoListItem>
                     <ContactInfoListItem>
                         <EmailIcon />
                         <DetailedContactInfo>
                             <span>E-mail</span>
-                            <p>forkitchens@hotmail.com</p>
+                            <p><a href="mailto:forkitchens@hotmail.com">forkitchens@hotmail.com</a></p>
                         </DetailedContactInfo>
                     </ContactInfoListItem>
                     <ContactInfoListItem>
@@ -248,10 +261,37 @@ const Content = () => {
                 <h2>Contact Form</h2>
                 <h3>Fill This So We Can Learn More About You And Your Project.</h3>
                 <ContactForm ref={form} onSubmit={sendEmail}>
-                    <input type="text" name="name" placeholder="*Name" required />
-                    <input type="email" name="email" placeholder="*Email" required />
-                    <input type="tel" name="telephone" placeholder="Telephone" />
-                    <textarea name="message" placeholder="*Message" required></textarea>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="*Name" 
+                        value={name}
+                        onChange={e=>setName(e.target.value)}
+                        required 
+                    />
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="*Email" 
+                        value={email}
+                        onChange={e=>setEmail(e.target.value)}
+                        required 
+                    />
+                    <input 
+                        type="tel" 
+                        name="telephone" 
+                        placeholder="Telephone" 
+                        value={telephone}
+                        onChange={e=>setTelephone(e.target.value)}
+                    />
+                    <textarea 
+                        name="message" 
+                        placeholder="*Message" 
+                        value={message}
+                        onChange={e=>setMessage(e.target.value)}
+                        required
+                    >
+                    </textarea>
                     <SubmitButton type="submit">Send</SubmitButton>
                 </ContactForm>
             </ContactFormContainer>

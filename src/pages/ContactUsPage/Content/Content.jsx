@@ -218,7 +218,7 @@ const Content = () => {
 
         emailjs.sendForm('service_75yozfi', 'template_ojh1kkx', form.current, 'craJ6dJSJNvj2yJHU')
             .then((result) => {
-                alert('success!');
+                alert('Your request has been sent to us! We will get back to you as soon as possible! Thanks!');
                 setName('');
                 setEmail('');
                 setTelephone('');

@@ -53,8 +53,6 @@ const ContactInfoList = styled('ul')(({theme}) => ({
         margin: 0,
     },
     [theme.breakpoints.down('sm')]: {
-        // flexDirection: 'column',
-        // alignItems: 'center',
         display: 'block',
         margin: '0 auto'
     }
@@ -104,7 +102,7 @@ const DetailedContactInfo = styled('div')(({theme}) => ({
             lineHeight: '18px',
             textAlign: 'left'
         }
-    }
+    },
 }))
 
 const EmailIcon = styled(EmailOutlinedIcon)(({theme}) => ({
@@ -157,6 +155,9 @@ const ContactFormContainer =  styled('div')(({theme}) => ({
         padding: '0 0 1em',
         lineHeight: '1.5em',
         margin: 0,
+    },
+    [theme.breakpoints.down('md')]: {
+        display: 'none',
     },
     [theme.breakpoints.down('md')]: {
         display: 'none',
@@ -218,7 +219,7 @@ const Content = () => {
 
         emailjs.sendForm('service_75yozfi', 'template_ojh1kkx', form.current, 'craJ6dJSJNvj2yJHU')
             .then((result) => {
-                alert('success!');
+                alert('Your request has been sent to us! We will get back to you as soon as possible! Thanks!');
                 setName('');
                 setEmail('');
                 setTelephone('');

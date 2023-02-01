@@ -10,15 +10,15 @@ const BannerContainer = styled('div')(() => ({
     position: 'relative',
 }))
 
-const BannerTextContainer = styled('div')(() => ({
+const BannerTextContainer = styled('div')(({theme}) => ({
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0.2)',
     padding: '40px 4.5vw 20px',
     position: 'absolute',
     '>h2': {
         color: '#fff',
-        fontSize: '3vw',
-        lineHeight: '1em',
+        fontSize: '40px',
+        lineHeight: '40px',
         paddingBottom: '0.5em',
         textTransform: 'uppercase',
         fontWeight: 'bold',
@@ -30,19 +30,31 @@ const BannerTextContainer = styled('div')(() => ({
         padding: '0 20%'
     },
     zIndex: 2,
+    [theme.breakpoints.down('sm')]: {
+        '>h2': {
+            fontSize: '24px',
+            lineHeight: '24px',
+        },
+        '>p': {
+            fontSize: '14px',
+        },
+    }
 }))
 
 const ContactLinkBox = styled('div')(() => ({
-    padding: '0 50px',
+    height: '50px',
     lineHeight: '50px',
     backgroundColor: '#f99e01',
     fontWeight: 'bold',
     margin: '40px auto',
-    width: '195px',
+    width: '180px',
     '>a': {
         textDecoration: 'none',
         color: '#fff',
         fontWeight: 'bold',
+        width: '100%',
+        height: '100%',
+        display: 'block',
     },
 }))
 

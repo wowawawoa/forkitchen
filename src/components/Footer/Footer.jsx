@@ -160,7 +160,7 @@ const CopyrightContainer = styled('div')(({theme}) => ({
     '>p>em': {
         fontSize: '14px',
         color: '#fff',
-        opacity: 0.8,
+        // opacity: 0.8,
         paddingLeft: '1em',
         fontStyle: 'normal',
     },
